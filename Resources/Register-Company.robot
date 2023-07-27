@@ -14,6 +14,7 @@ ${REG_URL}                          ${getBaseURL('${ENV}')}/register
 ${REG_CANDIDATE_URL}                ${getBaseURL('${ENV}')}/interviewee/register
 ${BROWSER}                          chrome
 
+
 #Error messages
 ${emptyRequiredField}               This field is required.
 ${Invalid}                          !!!!a
@@ -28,23 +29,27 @@ ${maxLengthName}                    The name must not be greater than 100 charac
 ${maxLengthEmail}                   The email must not be greater than 100 characters.
 ${maxLengthPassword}                The password must not be greater than 50 characters.
 
-${regCompanyName}                   PDW5 COMPANY
-${regName}                          POPPY5
-${regEmail}                         POPPY50@MAILINATOR.COM
+${regCompanyName}                   PDW52 COMPANY
+${regName}                          POPPY52
+${regEmail}                         POPPY52@MAILINATOR.COM
 ${regPassword}                      !1Qazqaz
 
 ${chatmessage}                      Hello There! This is a sample chat message.
 
+# Google account
+${googleEmail}                      lovemarie.1980s@gmail.com
+${googlePassword}                   !1Qazqaz
+
 # Valid data for new company registration
-${rregCompanyName}                  PhilHarmonic33 Co.
-${rregName}                         Philip33
-${rregEmail}                        Philip33@MAILINATOR.COM
+${rregCompanyName}                  PhilHarmonic505 Co.
+${rregName}                         Philip505
+${rregEmail}                        Philip505@MAILINATOR.COM
 ${rregPassword}                     !1Qazqaz
 
 # Valid data for new company registration for Show Password
-${ShowPass-RegCompanyName}          MonicHarmonic4 Co.
-${ShowPass-RegName}                 Monic4
-${ShowPass-RegEmail}                Monic94@MAILINATOR.COM
+${ShowPass-RegCompanyName}          MonicHarmonic405 Co.
+${ShowPass-RegName}                 Monic405
+${ShowPass-RegEmail}                Monic405@MAILINATOR.COM
 ${ShowPass-RegPassword}             !1Qazqaz
 
 ${CompanyNameMoreThanMaxLength}     ThisIsACompanyNameBeyondMaxLengthThisIsACompanyNameThisIsACompanyNameBeyondMaxLengthThisIsACompanyNam
@@ -328,6 +333,33 @@ Create New Company with Existing Data
     Click Create Account
     Wait Until Page Contains        Invalid email address
 
+Sign In With Google
+    Click Button                    //*[@id="login-sign-in-with-google"]
+    Wait Until Element Is Visible   //*[@type="email"]
 
+    Input Text                      //*[@type="email"]      ${googleEmail}
+    Sleep  1
+    Click Button                    Next
+    Sleep  3
 
+    Input Text                      //*[@name="Passwd"]     ${googlePassword}
+    Click Button                    Next
+    Sleep  3
+    Wait Until Page Contains        Job List
 
+Log In To Google Account
+    Open Browser                    https://www.google.com/   ${Browser}
+    wait until page contains        Google
+    click link                      //*[@class="gb_ta gb_qd gb_Sd gb_qe"]
+
+    Wait Until Element Is Visible   //*[@type="email"]
+    Input Text                      //*[@type="email"]      ${googleEmail}
+    Sleep  1
+    Click Button                    Next
+    Sleep  3
+
+    Input Text                      //*[@name="Passwd"]     ${googlePassword}
+    Sleep  1
+    Click Button                    Next
+    Sleep  3
+    wait until page contains        Google

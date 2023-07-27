@@ -16,7 +16,8 @@ ${LOGIN_URL}            ${getBaseURL('${ENV}')}/login
 ${EMAIL}                PAULWYDINC22@MAILINATOR.COM
 ${PASSWORD}             !1Qazqaz
 
-
+${RECRUITER_EMAIL}       recruiter10@mailinator.com
+${RECRUITER_PASSWORD}             !1Qazqaz
 *** Keywords ***
 Open Browser In Headless Mode
     ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
@@ -72,7 +73,15 @@ Login Admin Account
     Input Text                      //*[@id="login-email"]            ${Email}
     input text                      //*[@id="login-password"]         ${Password}
 
+Login Recruiter Account
+    Input Text                      //*[@id="login-email"]            ${RECRUITER_EMAIL}
+    input text                      //*[@id="login-password"]         ${RECRUITER_PASSWORD}
 
+Tick Stay Signed In
+    Click Element                   //*[@id="login-stay-signed-in"]
 
-
-
+Click Sign Out
+    Click Element                       //*[@class="nav-item dropdown"]
+    # See sub-menu Sign Out
+    Element Should Be Visible           //*[@class="ni ni-user-run"]
+    Click Element                       //*[@class="ni ni-user-run"]
