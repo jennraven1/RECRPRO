@@ -39,6 +39,9 @@ ${chatmessage}                      Hello There! This is a sample chat message.
 # Google account
 ${googleEmail}                      lovemarie.1980s@gmail.com
 ${googlePassword}                   !1Qazqaz
+# Unregistered Google account
+${googleUnregEmail}                 jennqaraven@gmail.com
+
 
 # Valid data for new company registration
 ${rregCompanyName}                  PhilHarmonic505 Co.
@@ -69,7 +72,6 @@ Verify Successfull Registration Message
     Wait Until Page Contains            Successfully Sign Up
     Sleep   1
     Wait Until Page Contains            Verify your email
-
 Check Registration Company Fields
 
 #    Wait Until Element Is Visible       ${REG_COMPANY_NAME}
@@ -87,7 +89,6 @@ Check Registration Company Fields
 #    Wait Until Element Is Visible       //*[@id="reg-privacy-policy"]
     Wait Until Element Is Visible       //*[@id="reg-create-account"]
     Wait Until Element Is Visible       //*[@class="fa fa-eye-slash"]
-
 Input Company Registration Form With Valid Data
     Input Text                          //*[@id="reg-company-name"]     ${rregCompanyName}
     Input Text                          //*[@id="reg-name"]             ${rregName}
@@ -96,7 +97,6 @@ Input Company Registration Form With Valid Data
 Input Newly Registered Company Account
     Input Text                      //*[@id="login-email"]            ${rregEmail}
     input text                      //*[@id="login-password"]         ${rregPassword}
-
 Click Create Account
 #    Click Button                        ${REG_CREATE_ACCOUNT}
     Click Element                       //*[@id="reg-create-account"]
@@ -104,7 +104,6 @@ Click Privacy Policy Link to See Privacy Policy Page
     Click Link                          Privacy Policy
     Switch Window                       locator=NEW
     Page Should Contain                 Privacy Policy
-
 Enable Privacy Policy
     Click Element                       //*[@for="reg-privacy-policy"]
 Show Password
@@ -123,7 +122,6 @@ Show Password in Company Registration
     Input Text                      //*[@id="reg-email"]            ${regEmail}
     Input Password                  //*[@id="reg-password"]         ${regPassword}
     Show Password
-
 Send Message to Tawk Chat
 
  #   Wait Until Element Is Visible   //*[@class="tawk-custom-color tawk-custom-border-color tawk-button tawk-button-circle tawk-button-large"]
@@ -132,7 +130,6 @@ Send Message to Tawk Chat
     Input Text                      //*[@id="dbdcmiapck81689579189160"]      ${rregEmail}
     Input Password                  //*[@id="yri0rlp7iacg1689579189160"]     ${chatmessage}
     Click Button                    //*[@class="tawk-margin-small-top tawk-button-hover width-100 tawk-custom-color tawk-custom-border-color tawk-button"]
-
 Check required fields when empty: Company Name
 #    ${emptyRequiredField}=  Get Text      ${REG_REQUIRED_FIELD_COMPANY_NAME}
     ${emptyRequiredField}=  Get Text    //*[@id="reg-company-name-invalid-feedback"]
@@ -147,7 +144,6 @@ Check required fields when empty: Password
     ${emptyRequiredField}=  Get Text    //*[@id="reg-password-invalid-feedback"]
 Check required fields when empty: Privacy Policy
     ${emptyRequiredField}=  Get Text    //*[@class="invalid-feedback"]
-
 Check Error Message for Fields Beyond Maximum Limit: Company Name
 #   ${maxLengthCompanyName}=  Get Text       ${REG_COMPANY_NAME_MAX_LIMIT}
     ${maxLengthCompanyName}=  Get Text    //*[@id="reg-company-name-invalid-feedback"]
@@ -160,17 +156,16 @@ Check Error Message for Fields Beyond Maximum Limit: Email
 Check Error Message for Fields Beyond Maximum Limit: Password
 #   ${maxLengthPassword}=  Get Text       ${REG_PASSWORD_MAX_LIMIT}
     ${maxLengthPassword}=  Get Text    //*[@id="reg-password-invalid-feedback"]
-
 Check Error for Invalid Email
     ${invalidEmail}=    Get Text    //*[@id="reg-email-invalid-feedback"]
 Check Error for Invalid Password
     ${invalidPasswordLessThan8Chars}=   Get Text    //*[@id="reg-password-invalid-feedback"]
 Check Error for Invalid Password Format
     ${invalidPasswordFormat}=           Get Text    //*[@id="reg-password-invalid-feedback"]
-
 Check Error Message for Existing Data
     Wait Until Element is Visible    Invalid email address.
-
+Check Success Message
+    Wait Until Element Is Visible  Successfully update profile
 Create New Company with Invalid Data on Email
     Open Browser                    ${REG_URL}             ${Browser}
     Wait Until Page Contains        Create a Company Account
@@ -180,7 +175,6 @@ Create New Company with Invalid Data on Email
     Input Password                  //*[@id="reg-password"]         ${regPassword}
     Check Error for Invalid Email
     Close Browser
-
 Create New Company with Invalid Password - Less than 8 characters
     Open Browser                    ${REG_URL}             ${Browser}
     Wait Until Page Contains        Create a Company Account
@@ -201,7 +195,6 @@ Create New Company with Invalid Password Format
     Input Password                  //*[@id="reg-password"]         ${Invalid}
     Check Error for Invalid Password Format
     Close Browser
-
 Create New Company with Company Name Beyond Defined Maximum Length
 
     Open Browser                    ${REG_URL}             ${Browser}
@@ -245,7 +238,6 @@ Create New Company with Password Beyond Defined Maximum Length
     Input Password                  //*[@id="reg-password"]         ${passwordmorethanmaxlength}
     Check Error Message for Fields Beyond Maximum Limit: Password
     Close Browser
-
 Create New Company with Empty Email
     Open Browser                    ${REG_URL}             ${Browser}
     Wait Until Page Contains        Create a Company Account
@@ -286,7 +278,6 @@ Create New Company with Empty Name
     Enable Privacy Policy
     Check Required Fields When Empty: Name
     Close Browser
-
 Create New Company with Valid Data
     Open Browser                    ${REG_URL}             ${Browser}
     Wait Until Page Contains        Create a Company Account
@@ -332,7 +323,6 @@ Create New Company with Existing Data
     Enable Privacy Policy
     Click Create Account
     Wait Until Page Contains        Invalid email address
-
 Sign In With Google
     Click Button                    //*[@id="login-sign-in-with-google"]
     Wait Until Element Is Visible   //*[@type="email"]
@@ -346,7 +336,19 @@ Sign In With Google
     Click Button                    Next
     Sleep  3
     Wait Until Page Contains        Job List
+Sign In With Google Using Unregistered Account
+    Click Button                    //*[@id="login-sign-in-with-google"]
+    Wait Until Element Is Visible   //*[@type="email"]
 
+    Input Text                      //*[@type="email"]      ${googleUnregEmail}
+    Sleep  1
+    Click Button                    Next
+    Sleep  3
+
+    Input Text                      //*[@name="Passwd"]     ${googlePassword}
+    Click Button                    Next
+    Sleep  3
+    Wait Until Page Contains        Incorrect email address or password.
 Log In To Google Account
     Open Browser                    https://www.google.com/   ${Browser}
     wait until page contains        Google
