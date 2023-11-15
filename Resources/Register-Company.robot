@@ -348,7 +348,7 @@ Sign In With Google Using Unregistered Account
     Input Text                      //*[@name="Passwd"]     ${googlePassword}
     Click Button                    Next
     Sleep  3
-    Wait Until Page Contains        Incorrect email address or password.
+    Wait Until Page Contains        The account you are trying to use is not yet registered.
 Log In To Google Account
     Open Browser                    https://www.google.com/   ${Browser}
     wait until page contains        Google
