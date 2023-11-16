@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.7 on win32)" generated="20231116 15:59:42.437" rpa="false" schemaversion="3">
+<suite id="s1" name="UserModule" source="C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Tests\UserModule">
+<suite id="s1-s1" name="Edit User Profile-RECRQTP-798" source="C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Tests\UserModule\Edit_User_Profile-RECRQTP-798.robot">
+<kw name="Begin Web Test" library="Common" type="SETUP">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${BROWSER_MODE}' == 'headless'</arg>
+<arg>Open Browser In Headless Mode</arg>
+<arg>ELSE</arg>
+<arg>Open Browser</arg>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Open Browser In Headless Mode" library="Common">
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231116 15:59:42.928" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002093EDA6FE0&gt;</msg>
+<status status="PASS" starttime="20231116 15:59:42.928" endtime="20231116 15:59:42.928"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231116 15:59:42.928" endtime="20231116 15:59:42.928"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20231116 15:59:42.928" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20231116 15:59:42.928" endtime="20231116 15:59:45.340"/>
+</kw>
+<status status="PASS" starttime="20231116 15:59:42.928" endtime="20231116 15:59:45.340"/>
+</kw>
+<status status="PASS" starttime="20231116 15:59:42.928" endtime="20231116 15:59:45.340"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>${1920}</arg>
+<arg>${1200}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20231116 15:59:45.340" endtime="20231116 15:59:45.453"/>
+</kw>
+<status status="PASS" starttime="20231116 15:59:42.928" endtime="20231116 15:59:45.453"/>
+</kw>
+<test id="s1-s1-t1" name="Scenario #1 RECRQTP-798 Edit User Profile - Happy Flow" line="17">
+<kw name="Navigate to Login Page" library="Common">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231116 15:59:45.453" level="INFO">Opening browser 'chrome' to base url 'https://secretproject1.com/login'.</msg>
+<status status="PASS" starttime="20231116 15:59:45.453" endtime="20231116 15:59:51.066"/>
+</kw>
+<status status="PASS" starttime="20231116 15:59:45.453" endtime="20231116 15:59:51.066"/>
+</kw>
+<kw name="Login Recruiter Account" library="Common">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="login-email"]</arg>
+<arg>${RECRUITER_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231116 15:59:51.066" level="INFO">Typing text 'recruiter10@mailinator.com' into text field '//*[@id="login-email"]'.</msg>
+<status status="PASS" starttime="20231116 15:59:51.066" endtime="20231116 15:59:51.323"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="login-password"]</arg>
+<arg>${RECRUITER_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231116 15:59:51.323" level="INFO">Typing text '!1Qazqaz' into text field '//*[@id="login-password"]'.</msg>
+<status status="PASS" starttime="20231116 15:59:51.323" endtime="20231116 15:59:51.463"/>
+</kw>
+<status status="PASS" starttime="20231116 15:59:51.066" endtime="20231116 15:59:51.463"/>
+</kw>
+<kw name="Click Sign In" library="Common">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Sign In</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231116 15:59:51.463" level="INFO">Clicking button 'Sign In'.</msg>
+<status status="PASS" starttime="20231116 15:59:51.463" endtime="20231116 15:59:51.605"/>
+</kw>
+<status status="PASS" starttime="20231116 15:59:51.463" endtime="20231116 15:59:51.605"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231116 15:59:52.619" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231116 15:59:51.605" endtime="20231116 15:59:52.619"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>Job List</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<msg timestamp="20231116 15:59:58.370" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231116 15:59:58.372" level="FAIL">Element 'Job List' did not appear in 5 seconds.</msg>
+<status status="FAIL" starttime="20231116 15:59:52.619" endtime="20231116 15:59:58.376"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231116 15:59:58.378" endtime="20231116 15:59:58.378"/>
+</kw>
+<kw name="Click Profile Menu" library="Common">
+<status status="NOT RUN" starttime="20231116 15:59:58.378" endtime="20231116 15:59:58.378"/>
+</kw>
+<kw name="Click Settings" library="Common">
+<status status="NOT RUN" starttime="20231116 15:59:58.381" endtime="20231116 15:59:58.381"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231116 15:59:58.381" endtime="20231116 15:59:58.381"/>
+</kw>
+<kw name="Verify User Profile Is Loaded" library="Common">
+<status status="NOT RUN" starttime="20231116 15:59:58.381" endtime="20231116 15:59:58.381"/>
+</kw>
+<kw name="Update Profile Picture" library="Common">
+<status status="NOT RUN" starttime="20231116 15:59:58.389" endtime="20231116 15:59:58.389"/>
+</kw>
+<kw name="Update FullName" library="Common">
+<status status="NOT RUN" starttime="20231116 15:59:58.389" endtime="20231116 15:59:58.389"/>
+</kw>
+<kw name="Click Save" library="Common">
+<status status="NOT RUN" starttime="20231116 15:59:58.393" endtime="20231116 15:59:58.393"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="NOT RUN" starttime="20231116 15:59:58.393" endtime="20231116 15:59:58.393"/>
+</kw>
+<doc>Valid Input</doc>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+<tag>UBT</tag>
+<status status="FAIL" starttime="20231116 15:59:45.453" endtime="20231116 15:59:58.401">Element 'Job List' did not appear in 5 seconds.</status>
+</test>
+<kw name="End Web Test" library="Common" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20231116 15:59:58.415" endtime="20231116 16:00:03.025"/>
+</kw>
+<status status="PASS" starttime="20231116 15:59:58.413" endtime="20231116 16:00:03.025"/>
+</kw>
+<doc>Test cases of Sign Up Form for Company Users</doc>
+<status status="FAIL" starttime="20231116 15:59:42.474" endtime="20231116 16:00:03.025"/>
+</suite>
+<suite id="s1-s2" name="Sign In Form UBT-RECRQTP-0003" source="C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Tests\UserModule\Sign_In_Form_UBT-RECRQTP-0003.robot">
+<kw name="Begin Web Test" library="Common" type="SETUP">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${BROWSER_MODE}' == 'headless'</arg>
+<arg>Open Browser In Headless Mode</arg>
+<arg>ELSE</arg>
+<arg>Open Browser</arg>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Open Browser In Headless Mode" library="Common">
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231116 16:00:03.086" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002093E8DD3C0&gt;</msg>
+<status status="PASS" starttime="20231116 16:00:03.086" endtime="20231116 16:00:03.086"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231116 16:00:03.089" endtime="20231116 16:00:03.089"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20231116 16:00:03.089" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20231116 16:00:03.089" endtime="20231116 16:00:04.261"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:03.086" endtime="20231116 16:00:04.263"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:03.086" endtime="20231116 16:00:04.263"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>${1920}</arg>
+<arg>${1200}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20231116 16:00:04.263" endtime="20231116 16:00:04.379"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:03.084" endtime="20231116 16:00:04.379"/>
+</kw>
+<test id="s1-s2-t1" name="Scenario #1 RECRQTP-10 Sign Up - Happy Flow" line="17">
+<kw name="Navigate to Login Page" library="Common">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231116 16:00:04.385" level="INFO">Opening browser 'chrome' to base url 'https://secretproject1.com/login'.</msg>
+<status status="PASS" starttime="20231116 16:00:04.383" endtime="20231116 16:00:09.793"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:04.383" endtime="20231116 16:00:09.793"/>
+</kw>
+<kw name="Login Admin Account" library="Common">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="login-email"]</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:09.795" level="INFO">Typing text 'PAULWYDINC22@MAILINATOR.COM' into text field '//*[@id="login-email"]'.</msg>
+<status status="PASS" starttime="20231116 16:00:09.795" endtime="20231116 16:00:10.227"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="login-password"]</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:10.227" level="INFO">Typing text '!1Qazqaz' into text field '//*[@id="login-password"]'.</msg>
+<status status="PASS" starttime="20231116 16:00:10.227" endtime="20231116 16:00:10.469"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:09.795" endtime="20231116 16:00:10.469"/>
+</kw>
+<kw name="Click Sign In" library="Common">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Sign In</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:10.473" level="INFO">Clicking button 'Sign In'.</msg>
+<status status="PASS" starttime="20231116 16:00:10.473" endtime="20231116 16:00:10.637"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:10.469" endtime="20231116 16:00:10.641"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231116 16:00:11.643" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231116 16:00:10.641" endtime="20231116 16:00:11.644"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Job List</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231116 16:00:11.644" endtime="20231116 16:00:13.235"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20231116 16:00:13.235" endtime="20231116 16:00:17.583"/>
+</kw>
+<doc>Valid Input</doc>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+<tag>UBT</tag>
+<status status="PASS" starttime="20231116 16:00:04.379" endtime="20231116 16:00:17.583"/>
+</test>
+<kw name="End Web Test" library="Common" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20231116 16:00:17.587" endtime="20231116 16:00:17.587"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:17.586" endtime="20231116 16:00:17.587"/>
+</kw>
+<doc>Test cases of Sign Up Form for Company Users</doc>
+<status status="PASS" starttime="20231116 16:00:03.029" endtime="20231116 16:00:17.587"/>
+</suite>
+<suite id="s1-s3" name="Sign In Google Account UBT-RECRQTP-1735" source="C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Tests\UserModule\Sign_In_Google_Account_UBT-RECRQTP-1735.robot">
+<test id="s1-s3-t1" name="Scenario #2 RECRQTP-1763 Sign in with Google Account - Already logged in to Google account" line="28">
+<kw name="Log In To Google Account" library="Register-Company">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.google.com/</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231116 16:00:17.638" level="INFO">Opening browser 'chrome' to base url 'https://www.google.com/'.</msg>
+<status status="PASS" starttime="20231116 16:00:17.638" endtime="20231116 16:00:20.995"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Google</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231116 16:00:20.995" endtime="20231116 16:00:21.020"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>//*[@class="gb_ta gb_qd gb_Sd gb_qe"]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:21.026" level="INFO">Clicking link '//*[@class="gb_ta gb_qd gb_Sd gb_qe"]'.</msg>
+<msg timestamp="20231116 16:00:21.218" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231116 16:00:21.218" level="FAIL">Link with locator '//*[@class="gb_ta gb_qd gb_Sd gb_qe"]' not found.</msg>
+<status status="FAIL" starttime="20231116 16:00:21.020" endtime="20231116 16:00:21.242"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//*[@type="email"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.242" endtime="20231116 16:00:21.242"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@type="email"]</arg>
+<arg>${googleEmail}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.249" endtime="20231116 16:00:21.250"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.250" endtime="20231116 16:00:21.250"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Next</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.250" endtime="20231116 16:00:21.252"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.253" endtime="20231116 16:00:21.253"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@name="Passwd"]</arg>
+<arg>${googlePassword}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.253" endtime="20231116 16:00:21.253"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.253" endtime="20231116 16:00:21.253"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Next</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.253" endtime="20231116 16:00:21.253"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.253" endtime="20231116 16:00:21.253"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Google</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.253" endtime="20231116 16:00:21.253"/>
+</kw>
+<status status="FAIL" starttime="20231116 16:00:17.638" endtime="20231116 16:00:21.253"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.260" endtime="20231116 16:00:21.260"/>
+</kw>
+<kw name="Open Project In New Tab and Close the rest" library="Common">
+<status status="NOT RUN" starttime="20231116 16:00:21.260" endtime="20231116 16:00:21.260"/>
+</kw>
+<kw name="Sign In With Google" library="Register-Company">
+<status status="NOT RUN" starttime="20231116 16:00:21.260" endtime="20231116 16:00:21.260"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.260" endtime="20231116 16:00:21.260"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Job List</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.260" endtime="20231116 16:00:21.260"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.260" endtime="20231116 16:00:21.260"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="NOT RUN" starttime="20231116 16:00:21.260" endtime="20231116 16:00:21.260"/>
+</kw>
+<doc>Valid Input</doc>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+<tag>UBT</tag>
+<status status="FAIL" starttime="20231116 16:00:17.629" endtime="20231116 16:00:21.268">Link with locator '//*[@class="gb_ta gb_qd gb_Sd gb_qe"]' not found.</status>
+</test>
+<doc>Test cases of Sign Up Form for Company Users</doc>
+<status status="FAIL" starttime="20231116 16:00:17.588" endtime="20231116 16:00:21.268"/>
+</suite>
+<suite id="s1-s4" name="Sign Out UBT-RECRQTP-0005" source="C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Tests\UserModule\Sign_Out_UBT-RECRQTP-0005.robot">
+<kw name="Begin Web Test" library="Common" type="SETUP">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${BROWSER_MODE}' == 'headless'</arg>
+<arg>Open Browser In Headless Mode</arg>
+<arg>ELSE</arg>
+<arg>Open Browser</arg>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Open Browser In Headless Mode" library="Common">
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231116 16:00:21.324" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002093EDA26B0&gt;</msg>
+<status status="PASS" starttime="20231116 16:00:21.324" endtime="20231116 16:00:21.324"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231116 16:00:21.324" endtime="20231116 16:00:21.324"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20231116 16:00:21.324" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20231116 16:00:21.324" endtime="20231116 16:00:22.468"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:21.324" endtime="20231116 16:00:22.468"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:21.324" endtime="20231116 16:00:22.468"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>${1920}</arg>
+<arg>${1200}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20231116 16:00:22.468" endtime="20231116 16:00:22.591"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:21.324" endtime="20231116 16:00:22.592"/>
+</kw>
+<test id="s1-s4-t1" name="Scenario #2 RECRQTP-38 Submenu &amp; Sign out - Sign out" line="37">
+<kw name="Navigate to Login Page" library="Common">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231116 16:00:22.595" level="INFO">Opening browser 'chrome' to base url 'https://secretproject1.com/login'.</msg>
+<status status="PASS" starttime="20231116 16:00:22.594" endtime="20231116 16:00:28.470"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:22.593" endtime="20231116 16:00:28.470"/>
+</kw>
+<kw name="Login Recruiter Account" library="Common">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="login-email"]</arg>
+<arg>${RECRUITER_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:28.470" level="INFO">Typing text 'recruiter10@mailinator.com' into text field '//*[@id="login-email"]'.</msg>
+<status status="PASS" starttime="20231116 16:00:28.470" endtime="20231116 16:00:28.796"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="login-password"]</arg>
+<arg>${RECRUITER_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:28.796" level="INFO">Typing text '!1Qazqaz' into text field '//*[@id="login-password"]'.</msg>
+<status status="PASS" starttime="20231116 16:00:28.796" endtime="20231116 16:00:28.945"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:28.470" endtime="20231116 16:00:28.945"/>
+</kw>
+<kw name="Click Sign In" library="Common">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Sign In</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:28.945" level="INFO">Clicking button 'Sign In'.</msg>
+<status status="PASS" starttime="20231116 16:00:28.945" endtime="20231116 16:00:29.070"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:28.945" endtime="20231116 16:00:29.070"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231116 16:00:30.082" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231116 16:00:29.070" endtime="20231116 16:00:30.082"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>Job List</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20231116 16:00:30.082" endtime="20231116 16:00:32.797"/>
+</kw>
+<kw name="Click Sign Out" library="Common">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@class="nav-item dropdown"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:32.797" level="INFO">Clicking element '//*[@class="nav-item dropdown"]'.</msg>
+<status status="PASS" starttime="20231116 16:00:32.797" endtime="20231116 16:00:32.903"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//*[@class="ni ni-user-run"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231116 16:00:32.903" endtime="20231116 16:00:32.965"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231116 16:00:33.965" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231116 16:00:32.965" endtime="20231116 16:00:33.965"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@class="ni ni-user-run"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:33.965" level="INFO">Clicking element '//*[@class="ni ni-user-run"]'.</msg>
+<status status="PASS" starttime="20231116 16:00:33.965" endtime="20231116 16:00:34.097"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:32.797" endtime="20231116 16:00:34.097"/>
+</kw>
+<kw name="Verify Login Page is Loaded" library="Common">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//*[@id="login-wrapper"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231116 16:00:34.097" endtime="20231116 16:00:34.862"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:34.097" endtime="20231116 16:00:34.862"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20231116 16:00:34.862" endtime="20231116 16:00:41.404"/>
+</kw>
+<doc>Valid Input</doc>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+<tag>UBT</tag>
+<status status="PASS" starttime="20231116 16:00:22.592" endtime="20231116 16:00:41.404"/>
+</test>
+<kw name="End Web Test" library="Common" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20231116 16:00:41.407" endtime="20231116 16:00:41.407"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:41.406" endtime="20231116 16:00:41.408"/>
+</kw>
+<doc>Test cases of Sign Up Form for Company Users</doc>
+<status status="PASS" starttime="20231116 16:00:21.268" endtime="20231116 16:00:41.408"/>
+</suite>
+<suite id="s1-s5" name="Sign Up Form UBT-RECRQTP-0002" source="C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Tests\UserModule\Sign_Up_Form_UBT-RECRQTP-0002.robot">
+<kw name="Begin Web Test" library="Common" type="SETUP">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${BROWSER_MODE}' == 'headless'</arg>
+<arg>Open Browser In Headless Mode</arg>
+<arg>ELSE</arg>
+<arg>Open Browser</arg>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Open Browser In Headless Mode" library="Common">
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231116 16:00:41.476" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002093EDA7790&gt;</msg>
+<status status="PASS" starttime="20231116 16:00:41.476" endtime="20231116 16:00:41.476"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231116 16:00:41.476" endtime="20231116 16:00:41.476"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>chrome_options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20231116 16:00:41.476" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20231116 16:00:41.476" endtime="20231116 16:00:42.612"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:41.476" endtime="20231116 16:00:42.612"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:41.476" endtime="20231116 16:00:42.612"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>${1920}</arg>
+<arg>${1200}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20231116 16:00:42.612" endtime="20231116 16:00:42.736"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:41.476" endtime="20231116 16:00:42.739"/>
+</kw>
+<test id="s1-s5-t1" name="Scenario #1 RECRQTP-10 Sign Up - Happy Flow" line="17">
+<kw name="Navigate to Login Page" library="Common">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231116 16:00:42.740" level="INFO">Opening browser 'chrome' to base url 'https://secretproject1.com/login'.</msg>
+<status status="PASS" starttime="20231116 16:00:42.740" endtime="20231116 16:00:50.742"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:42.740" endtime="20231116 16:00:50.742"/>
+</kw>
+<kw name="Navigate to Register Page" library="Common">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Register now</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:50.750" level="INFO">Clicking link 'Register now'.</msg>
+<status status="PASS" starttime="20231116 16:00:50.750" endtime="20231116 16:00:50.907"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:50.750" endtime="20231116 16:00:50.911"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231116 16:00:51.915" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231116 16:00:50.911" endtime="20231116 16:00:51.915"/>
+</kw>
+<kw name="Verify Register Company Page is Loaded" library="Register-Company">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//*[@id="register-wrapper"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231116 16:00:51.915" endtime="20231116 16:00:51.963"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:51.915" endtime="20231116 16:00:51.963"/>
+</kw>
+<kw name="Show Password" library="Register-Company">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@id="reg-view-password"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:51.967" level="INFO">Clicking element '//*[@id="reg-view-password"]'.</msg>
+<status status="PASS" starttime="20231116 16:00:51.963" endtime="20231116 16:00:52.056"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:51.963" endtime="20231116 16:00:52.056"/>
+</kw>
+<kw name="Input Company Registration Form With Valid Data" library="Register-Company">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="reg-company-name"]</arg>
+<arg>${rregCompanyName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:52.056" level="INFO">Typing text 'PhilHarmonic505 Co.' into text field '//*[@id="reg-company-name"]'.</msg>
+<status status="PASS" starttime="20231116 16:00:52.056" endtime="20231116 16:00:53.843"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="reg-name"]</arg>
+<arg>${rregName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:53.843" level="INFO">Typing text 'Philip505' into text field '//*[@id="reg-name"]'.</msg>
+<status status="PASS" starttime="20231116 16:00:53.843" endtime="20231116 16:00:54.062"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="reg-email"]</arg>
+<arg>${rregEmail}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:54.062" level="INFO">Typing text 'Philip505@MAILINATOR.COM' into text field '//*[@id="reg-email"]'.</msg>
+<status status="PASS" starttime="20231116 16:00:54.062" endtime="20231116 16:00:54.366"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>//*[@id="reg-password"]</arg>
+<arg>${rregPassword}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:54.366" level="INFO">Typing password into text field '//*[@id="reg-password"]'.</msg>
+<msg timestamp="20231116 16:00:54.428" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231116 16:00:54.546" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231116 16:00:54.366" endtime="20231116 16:00:54.546"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:52.056" endtime="20231116 16:00:54.546"/>
+</kw>
+<kw name="Enable Privacy Policy" library="Register-Company">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@for="reg-privacy-policy"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:54.546" level="INFO">Clicking element '//*[@for="reg-privacy-policy"]'.</msg>
+<status status="PASS" starttime="20231116 16:00:54.546" endtime="20231116 16:00:54.815"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:54.546" endtime="20231116 16:00:54.815"/>
+</kw>
+<kw name="Click Create Account" library="Register-Company">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//*[@id="reg-create-account"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231116 16:00:54.817" level="INFO">Clicking button '//*[@id="reg-create-account"]'.</msg>
+<status status="PASS" starttime="20231116 16:00:54.817" endtime="20231116 16:00:54.959"/>
+</kw>
+<status status="PASS" starttime="20231116 16:00:54.817" endtime="20231116 16:00:54.959"/>
+</kw>
+<kw name="Verify Successfull Registration Message" library="Register-Company">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Successfully Sign Up</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<msg timestamp="20231116 16:01:00.301" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231116 16:01:00.301" level="FAIL">Text 'Successfully Sign Up' did not appear in 5 seconds.</msg>
+<status status="FAIL" starttime="20231116 16:00:54.961" endtime="20231116 16:01:00.301"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231116 16:01:00.301" endtime="20231116 16:01:00.301"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Verify your email</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20231116 16:01:00.301" endtime="20231116 16:01:00.301"/>
+</kw>
+<status status="FAIL" starttime="20231116 16:00:54.960" endtime="20231116 16:01:00.301"/>
+</kw>
+<kw name="Navigate to Login Page" library="Common">
+<status status="NOT RUN" starttime="20231116 16:01:00.301" endtime="20231116 16:01:00.301"/>
+</kw>
+<kw name="Input Newly Registered Company Account" library="Register-Company">
+<status status="NOT RUN" starttime="20231116 16:01:00.301" endtime="20231116 16:01:00.301"/>
+</kw>
+<kw name="Click Sign In" library="Common">
+<status status="NOT RUN" starttime="20231116 16:01:00.301" endtime="20231116 16:01:00.301"/>
+</kw>
+<kw name="Verify User Successfully Logged In" library="Common">
+<status status="NOT RUN" starttime="20231116 16:01:00.301" endtime="20231116 16:01:00.301"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="NOT RUN" starttime="20231116 16:01:00.301" endtime="20231116 16:01:00.301"/>
+</kw>
+<doc>Valid Input</doc>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+<tag>UBT</tag>
+<status status="FAIL" starttime="20231116 16:00:42.740" endtime="20231116 16:01:00.308">Text 'Successfully Sign Up' did not appear in 5 seconds.</status>
+</test>
+<kw name="End Web Test" library="Common" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20231116 16:01:00.308" endtime="20231116 16:01:04.627"/>
+</kw>
+<status status="PASS" starttime="20231116 16:01:00.308" endtime="20231116 16:01:04.627"/>
+</kw>
+<doc>Test cases of Sign Up Form for Company Users</doc>
+<status status="FAIL" starttime="20231116 16:00:41.411" endtime="20231116 16:01:04.627"/>
+</suite>
+<status status="FAIL" starttime="20231116 15:59:42.437" endtime="20231116 16:01:04.630"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="3" skip="0">Regression</stat>
+<stat pass="2" fail="3" skip="0">Smoke</stat>
+<stat pass="2" fail="3" skip="0">UBT</stat>
+</tag>
+<suite>
+<stat pass="2" fail="3" skip="0" id="s1" name="UserModule">UserModule</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Edit User Profile-RECRQTP-798">UserModule.Edit User Profile-RECRQTP-798</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s2" name="Sign In Form UBT-RECRQTP-0003">UserModule.Sign In Form UBT-RECRQTP-0003</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s3" name="Sign In Google Account UBT-RECRQTP-1735">UserModule.Sign In Google Account UBT-RECRQTP-1735</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s4" name="Sign Out UBT-RECRQTP-0005">UserModule.Sign Out UBT-RECRQTP-0005</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s5" name="Sign Up Form UBT-RECRQTP-0002">UserModule.Sign Up Form UBT-RECRQTP-0002</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20231116 15:59:42.912" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 4: Resource file '..\Common.robot' does not exist.</msg>
+<msg timestamp="20231116 15:59:42.912" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 5: Variable file '..\Elements\Register.py' does not exist.</msg>
+<msg timestamp="20231116 15:59:42.928" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 9: Variable file '..\Elements\Register.py' does not exist.</msg>
+<msg timestamp="20231116 15:59:42.928" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 10: Variable file '..\..\Resources\Elements\Register.py' does not exist.</msg>
+<msg timestamp="20231116 16:00:03.057" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 4: Resource file '..\Common.robot' does not exist.</msg>
+<msg timestamp="20231116 16:00:03.062" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 5: Variable file '..\Elements\Register.py' does not exist.</msg>
+<msg timestamp="20231116 16:00:03.068" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 9: Variable file '..\Elements\Register.py' does not exist.</msg>
+<msg timestamp="20231116 16:00:03.074" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 10: Variable file '..\..\Resources\Elements\Register.py' does not exist.</msg>
+<msg timestamp="20231116 16:00:17.614" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 4: Resource file '..\Common.robot' does not exist.</msg>
+<msg timestamp="20231116 16:00:17.620" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 5: Variable file '..\Elements\Register.py' does not exist.</msg>
+<msg timestamp="20231116 16:00:17.625" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 9: Variable file '..\Elements\Register.py' does not exist.</msg>
+<msg timestamp="20231116 16:00:17.629" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 10: Variable file '..\..\Resources\Elements\Register.py' does not exist.</msg>
+<msg timestamp="20231116 16:00:21.308" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 4: Resource file '..\Common.robot' does not exist.</msg>
+<msg timestamp="20231116 16:00:21.312" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 5: Variable file '..\Elements\Register.py' does not exist.</msg>
+<msg timestamp="20231116 16:00:21.316" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 9: Variable file '..\Elements\Register.py' does not exist.</msg>
+<msg timestamp="20231116 16:00:21.316" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 10: Variable file '..\..\Resources\Elements\Register.py' does not exist.</msg>
+<msg timestamp="20231116 16:00:41.452" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 4: Resource file '..\Common.robot' does not exist.</msg>
+<msg timestamp="20231116 16:00:41.457" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 5: Variable file '..\Elements\Register.py' does not exist.</msg>
+<msg timestamp="20231116 16:00:41.463" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 9: Variable file '..\Elements\Register.py' does not exist.</msg>
+<msg timestamp="20231116 16:00:41.465" level="ERROR">Error in file 'C:\Users\pader\PycharmProjects\RAVEN\RECRPRO\Resources\Register-Company.robot' on line 10: Variable file '..\..\Resources\Elements\Register.py' does not exist.</msg>
+</errors>
+</robot>
